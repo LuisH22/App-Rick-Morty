@@ -1,0 +1,22 @@
+<div class="card card-horizontal mb-3">
+    <div class="row g-0">
+      <div class="col-md-5 d-flex justify-contents-center align-items-center">
+        <img width="100%" src="{{ character?.image }}" alt="{{character?.image}}" class="">
+      </div>
+      <div class="col-md-7 ml-5 info-character text-center">
+        <div class="card-body">
+          <h5 class="card-title d-inline mb-2">Estatus: 
+            <span class="badge" [ngClass]="{'bg-rm': character?.status == 'Alive', 
+            'bg-danger': character?.status == 'Dead', 
+            'bg-secondary': character?.status == 'unknown'}"> {{character?.status}} </span>
+          </h5>
+          <p class="card-text mt-3"> Especie: {{ character?.species }} </p>
+          <p class="card-text mt-3"> Tipo: {{ character?.type }} </p>
+          <p class="card-text mt-3"> Género: {{ character?.gender }} </p>
+          <p class="card-text mt-3"> Localización: {{ character?.location.name }} </p>
+          <p class="card-text mt-3"> Origen: {{ character?.origin.name }} </p>
+          <p class="card-text"><small class="text-muted"> Creado: {{ character?.created }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>

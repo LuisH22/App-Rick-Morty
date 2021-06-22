@@ -1,0 +1,19 @@
+<div class="card">
+	<div class="card-body">
+		<h6 class="card-title text-center">
+			<span>{{ character?.name }}</span>
+		</h6>
+		<p class="card-text mb-1">Estatus:
+			<span class="badge" 
+						[ngClass]="{'bg-rm': character?.status == 'Alive',
+												'bg-danger': character?.status == 'Dead',
+												'bg-secondary': character?.status == 'unknown'}">
+				{{ character?.status }}
+			</span>
+		</p>
+		<p class="card-text">Genero: {{ character?.gender }}</p>
+	</div>
+	<a routerLink="/character/{{ character?.id }}">
+		<img class="card-img-bottom" src="{{ character?.image }}" alt="">
+	</a>
+</div>

@@ -1,0 +1,68 @@
+<div class="row text-center mt-5">
+	<div class="col-12">
+		<h1 class="title">Rick & Morty</h1>
+	</div>
+</div>
+
+<form class="row mt-3" [formGroup]="form">
+	<div class="col-sm-6 col-md-6 col-lg-4">
+		<label for="">Nombre</label>
+		<div class="input-group">
+			<input type="text" 
+				   class="form-control" 
+				   placeholder="Nombre ejemplo: Rick" 
+				   formControlName="name">
+
+			<button class="input-group-text btn btn-rm"
+					[disabled]="nameRequired"
+					(click)="search()">Buscar
+			</button>
+		</div>
+	</div>
+	<div class="col-sm-6 col-md-6 col-lg-4">
+		<label for="">Filtrar</label>
+		<select name="" id="" class="form-select" (change)="changeFilter()" formControlName="filter" >
+			<option value="">Todos</option>
+			<option *ngFor="let g of filterSelect" [value]="g">{{ g }}</option>
+		</select>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-4 d-flex justify-content-end align-items-end mt-3">
+		<button *ngIf="searchButton && !nameRequired || filter != '' " 	
+				class="btn btn-rm" 
+				(click)="showAll()"
+				style="max-height: 37px;">Mostrar todos
+		</button>
+	</div>
+</form>
+
+<div class="search-results" 
+		infiniteScroll 
+		[infiniteScrollDistance]="1" 
+		[infiniteScrollThrottle]="800"
+		(scrolled)="onScroll()" 
+		[scrollWindow]="true">
+
+	<div class="row mt-3">
+		<div *ngFor="let character of characters" class="col-sm-12 col-md-4 col-lg-3 mb-3">
+			<app-card [character]="character"></app-card>
+		</div>
+
+		<div class="col-12 d-flex justify-content-around container-spinner mt-3 mb-3" *ngIf="cargando">
+			<div *ngFor="let i of [1,2,3,4,5]" class="spinner-grow text-rm" role="status">
+				<span class="visually-hidden mr-3">Loading...</span>
+			</div>
+		</div>
+
+		<div class="col-12 d-flex justify-content-center" *ngIf="page > lastPage">
+			<div class="alert alert-success text-center w-50" role="alert">
+				No hay más información
+			</div>
+		</div>
+
+		<button *ngIf="showBtnTop" 
+				type="button" 
+				class="btn btn-success btn-back-top"
+				(click)="backTop()"><i class="fas fa-chevron-circle-up"></i>
+		</button>
+	</div>
+</div>

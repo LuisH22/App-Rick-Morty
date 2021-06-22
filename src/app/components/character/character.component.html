@@ -1,0 +1,21 @@
+
+<div class="row mt-5 text-center">
+    <div class="col-12">
+        <h1 class="title">Character: {{ character?.name }}</h1>
+    </div>
+    <div class="col-12 text-start">
+        <button class="btn btn-rm" routerLink="/home">Regresar</button>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12 d-flex justify-content-around container-spinner mt-3 mb-3" 
+        *ngIf="cargando">
+        <div *ngFor="let i of [1,2,3,4,5]" class="spinner-grow text-rm" role="status">
+            <span class="visually-hidden mr-3">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="!cargando" class="col-12">
+      <app-card-horizontal [character]="character"></app-card-horizontal>
+    </div>
+</div>
