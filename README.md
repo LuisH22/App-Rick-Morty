@@ -6,10 +6,10 @@
 - SweetAlert2
 
 ## Funciones
--Muestra los personajes de Rick y Morty (infinite scrolldown)
--Busca personajes por nombre-
--Filtra personajes por genero
--Seleccion de personaje muestra mas información
+- Muestra los personajes de Rick y Morty (infinite scrolldown)
+- Busca personajes por nombre-
+- Filtra personajes por genero
+- Seleccion de personaje muestra mas información
 
 ## Development server
 
