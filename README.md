@@ -1,9 +1,9 @@
 # AppRickMorty
 
--This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
--API `https://rickandmortyapi.com/api` 
--Bootstrap 5
--SweetAlert2
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+- API `https://rickandmortyapi.com/api` 
+- Bootstrap 5
+- SweetAlert2
 
 ## Funciones
 -Muestra los personajes de Rick y Morty (infinite scrolldown)
